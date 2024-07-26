@@ -1,0 +1,255 @@
+@charset "utf-8";
+
+/* reset ----------------- */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #eee;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+/* helper--------------- */
+
+.container {
+  max-width: 1100px;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid__item {
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.grid-2 .grid__item {
+  width: 50%;
+}
+
+.grid-3 .grid__item {
+  width: 33.33333%;
+}
+
+.grid-4 .grid__item {
+  width: 25%;
+}
+
+.grid-5 .grid__item {
+  width: 20%;
+}
+
+.grid-6 .grid__item {
+  width: 16.6666%;
+}
+
+.grid-8 .grid__item {
+  width: 12.5%;
+}
+
+.row {
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.img-resp {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-full {
+  width: 100%;
+  height: auto;
+}
+
+/* module: part ---------------- */
+
+.part {
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  min-height: 240px;
+}
+
+.part__tit {
+  margin-bottom: 0;
+  text-transform: capitalize;
+  line-height: 1;
+}
+
+.part__ls {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.part .pagiation {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.part .pagination__btn {
+  margin-left: .5rem;
+}
+
+/* module: card ---------------- */
+
+.card {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card__imgs {
+  width: 25%;
+}
+
+.card__intro {
+  width: 75%;
+  margin: 12px;
+  color: #aaa;
+  font-size: .9rem;
+}
+
+.card__desc {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1;
+  word-break: break-all;
+}
+
+.card__desc + .card__desc {
+  margin-top: 6px;
+}
+
+.card__desc--name {
+  font-weight: 600;
+  color: #666;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card__desc + .img-resp {
+  margin-top: 6px;
+}
+
+.card-column {
+  flex-direction: column;
+}
+
+.card-column .card__imgs,
+.card-column .card__intro {
+  width: auto;
+}
+
+/* module: pagination ---------------- */
+
+.pagination__btn {
+  padding: 6px 12px;
+  font-size: 1rem;
+  line-height: 1;
+  border: none;
+  background-color: transparent;
+  border-radius: 3px;
+}
+
+.pagination__btn--cancel {
+  background-color: #ccc;
+}
+
+.pagination__btn--cancel:hover {
+  background-color: #aaa;
+  cursor: pointer;
+}
+
+.pagination__btn:disabled {
+  color: #fff!important;
+  cursor: default;
+  background-color:#dc3545!important;
+}
+
+/* loader ------------- */
+
+.loader {
+  text-align: center;
+  opacity: .5;
+}
+
+.loader__desc {
+  color: #000;
+  font-size: 13px;
+}
+
+.loader-rotatePlane {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  background-color: rgba(0, 0, 0, .3);
+  -webkit-animation: rotatePlane 1.2s infinite ease-in-out;
+          animation: rotatePlane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes rotatePlane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+@keyframes rotatePlane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+.modal {
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-dark {
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.modal-light {
+  background-color: rgba(255, 255, 255, .7);
+}
+
+@media screen and (max-width: 1124px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+}
