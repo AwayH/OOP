@@ -1,4 +1,4 @@
-const getData = async (api) => {
+const getData = async (api = '') => {
   try {
     const res = await fetch(api);
     const data = await res.json();
@@ -12,10 +12,18 @@ const getData = async (api) => {
   return [];
 };
 
-const getGridStr = (data = [], template = '', str = '') => {
-  data.map((each) => str += `<li class="grid__item">${template(each)}</li>`);
+const getGridStr = (data = [], template = '', hasFlag = false, str = '') => {
+  data.map((each) => str += `<li class="grid__item">${template(each, hasFlag)}</li>`);
   
   return str;
 };
 
-export { getData, getGridStr };
+const getBtnsStr = (data = [], template = '', current = 0, str = '' ) => {
+  data.forEach((each, i) => {
+    str += template(i, current);
+  });
+
+  return str;
+};
+
+export { getData, getGridStr, getBtnsStr };

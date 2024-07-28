@@ -13,13 +13,30 @@ img {
 
 /* helper--------------- */
 
-.container {
-  max-width: 1100px;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.row {
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.img-resp {
+  max-width: 100%;
+  height: auto;
+}
+
+.img-full {
+  width: 100%;
+  height: auto;
+}
+
+/* layout ------------------ */
+
+.container {
+  max-width: 1100px;
 }
 
 .grid {
@@ -56,48 +73,37 @@ img {
   width: 12.5%;
 }
 
-.row {
-  margin-left: -12px;
-  margin-right: -12px;
+.grid-10 .grid__item {
+  width: 10%;
 }
 
-.img-resp {
-  max-width: 100%;
-  height: auto;
-}
+/* module: base ---------------- */
 
-.img-full {
-  width: 100%;
-  height: auto;
-}
-
-/* module: part ---------------- */
-
-.part {
+.base {
   position: relative;
   margin-top: 3rem;
   margin-bottom: 3rem;
   min-height: 240px;
 }
 
-.part__tit {
+.base__title {
   margin-bottom: 0;
   text-transform: capitalize;
   line-height: 1;
 }
 
-.part__ls {
+.base__ls {
   list-style-type: none;
   padding-left: 0;
 }
 
-.part .pagiation {
+.base .pagination {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.part .pagination__btn {
+.base .pagination__btn {
   margin-left: .5rem;
 }
 
@@ -118,7 +124,7 @@ img {
 .card__intro {
   width: 75%;
   margin: 12px;
-  color: #aaa;
+  color: #666;
   font-size: .9rem;
 }
 
@@ -135,14 +141,14 @@ img {
 
 .card__desc--name {
   font-weight: 600;
-  color: #666;
+  color: #333;
   font-size: 1rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.card__desc + .img-resp {
+.card__desc + .card__img {
   margin-top: 6px;
 }
 
@@ -176,9 +182,9 @@ img {
 }
 
 .pagination__btn:disabled {
-  color: #fff!important;
+  color: #fff !important;
   cursor: default;
-  background-color:#dc3545!important;
+  background-color: #dc3545 !important;
 }
 
 /* loader ------------- */
@@ -199,16 +205,18 @@ img {
   height: 45px;
   background-color: rgba(0, 0, 0, .3);
   -webkit-animation: rotatePlane 1.2s infinite ease-in-out;
-          animation: rotatePlane 1.2s infinite ease-in-out;
+  animation: rotatePlane 1.2s infinite ease-in-out;
 }
 
 @-webkit-keyframes rotatePlane {
   0% {
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
   }
+
   50% {
     transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
   }
+
   100% {
     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }
@@ -218,9 +226,11 @@ img {
   0% {
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
   }
+
   50% {
     transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
   }
+
   100% {
     transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
   }

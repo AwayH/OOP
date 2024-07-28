@@ -1,7 +1,7 @@
 const card = ({ picture, name, email }) => `
     <div class="card">
       <div class="card__imgs">
-        <img class="card__img img-resp" src="${picture.large}">
+        <img class="card__img img-resp" src="${picture.large}" width="163" height="163" alt="${name.first} ${name.last}">
       </div>
       <div class="card__intro">
         <p class="card__desc card__desc--name">${name.first} ${name.last}</p>
@@ -9,35 +9,35 @@ const card = ({ picture, name, email }) => `
       </div>
     </div>`;
 
-const cardColumn = ({ picture, name, gender, nat, location }) => `
+const cardColumn = ({ picture, name, gender, nat, location }, hasFlag) => `
   <div class="card card-column">
     <div class="card__imgs">
-      <img class="card__img img-resp" src="${picture.large}">
+      <img class="card__img img-full" src="${picture.large}" width="163" height="163" alt="${name.first} ${name.last}">
     </div>
     <div class="card__intro">
       <p class="card__desc card__desc--name">${name.first} ${name.last}</p>
       <p class="card__desc card__desc--gender">${gender}</p>
-      <img
-        class="card__img img-resp"
-        src="https://flagcdn.com/32x24/${nat.toLowerCase()}.png"
-        srcset="https://flagcdn.com/64x48/${nat.toLowerCase()}.png 2x,
-          https://flagcdn.com/96x72/${nat.toLowerCase()}.png 3x"
-        width="32"
-        height="24"
-        alt="${location.country}">
+      ${hasFlag ? `
+        <img
+          class="card__img img-resp"
+          src="https://flagcdn.com/32x24/${nat.toLowerCase()}.png"
+          srcset="https://flagcdn.com/64x48/${nat.toLowerCase()}.png 2x,
+            https://flagcdn.com/96x72/${nat.toLowerCase()}.png 3x"
+          width="32"
+          height="24"
+          alt="${location.country}"
+        >` : ''
+      }
     </div>
   </div>`;
 
-const cardColumn2 = ({ picture, name, gender }) => `
-  <div class="card card-column">
-    <div class="card__imgs">
-      <img class="card__img img-full" src="${picture.large}">
-    </div>
-    <div class="card__intro">
-      <p class="card__desc card__desc--name">${name.first} ${name.last}</p>
-      <p class="card__desc card__desc--gender">${gender}</p>
-    </div>
-  </div>`;
+const paginationBtn = (index, current) => `
+  <input
+		class="pagination__btn pagination__btn--cancel"
+		type="button"
+		value="${index + 1}"
+		${index === current ? 'disabled' : ''}
+	>`;
 
 const loader = () => `
   <div class="loader">
@@ -45,4 +45,4 @@ const loader = () => `
     <p class="loader__desc">資料下載中...請稍後！</p>
   </div>`;
 
-export { card, cardColumn, cardColumn2, loader };
+export { card, cardColumn, paginationBtn, loader };
